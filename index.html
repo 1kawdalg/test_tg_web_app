@@ -3,29 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram WebApp</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <title>Standalone WebApp</title>
 </head>
 <body>
-    <h1>Welcome to Telegram WebApp</h1>
+    <h1>Welcome to the Standalone WebApp</h1>
     <button id="sendMessageButton">Send Message</button>
     <div id="receivedData"></div>
 
     <script>
-        const tg = window.Telegram.WebApp;
-
         document.getElementById('sendMessageButton').addEventListener('click', () => {
-            tg.sendData('Hello from WebApp!'); // Отправка данных боту
-        });
-
-        // Обработка события получения данных
-        tg.onEvent('web_app_data', (data) => {
             const receivedDataDiv = document.getElementById('receivedData');
-            receivedDataDiv.innerText = `Received data from bot: ${data}`;
+            receivedDataDiv.innerText = 'Hello from WebApp!';
+            console.log('Send Message button clicked');
         });
 
         // Для отладки
-        console.log('Telegram WebApp initialized', tg);
+        console.log('Standalone WebApp initialized');
     </script>
 </body>
 </html>
