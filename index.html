@@ -10,6 +10,19 @@
     <h1>Welcome to Telegram WebApp</h1>
     <button id="sendMessageButton">Send Message</button>
 
-    <script src="script.js"></script>
+    <script>
+        const tg = window.Telegram.WebApp;
+
+        document.getElementById('sendMessageButton').addEventListener('click', () => {
+            tg.sendData('Hello from WebApp!'); // Отправка данных боту
+        });
+
+        tg.onEvent('web_app_data', (data) => {
+            alert(`Received data from bot: ${data}`);
+        });
+
+        // Для отладки
+        console.log('Telegram WebApp initialized', tg);
+    </script>
 </body>
 </html>
