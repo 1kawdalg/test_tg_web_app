@@ -30,15 +30,19 @@
     </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
+        let tg = window.Telegram.WebApp
+
         function onTelegramAuth(user) {
             const userInfoDiv = document.getElementById('user-info');
-            userInfoDiv.innerHTML = `<p><strong>Username:</strong> ${user.username}</p>
-                                     <p><strong>First Name:</strong> ${user.first_name}</p>
-                                     <p><strong>Last Name:</strong> ${user.last_name}</p>`;
+            document.log('start')
+            userInfoDiv.innerHTML = `<p><strong>Username:</strong> ${tg.user.username}</p>
+                                     <p><strong>First Name:</strong> ${tg.user.first_name}</p>
+                                     <p><strong>Last Name:</strong> ${tg.user.last_name}</p>`;
+            document.log('data is add')
         }
 
-        Telegram.WebApp.onEvent('auth', onTelegramAuth);
-        Telegram.WebApp.ready();
+        tg.onEvent('auth', onTelegramAuth);
+        tg.ready();
     </script>
 </body>
 </html>
