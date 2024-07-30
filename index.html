@@ -9,6 +9,7 @@
 <body>
     <h1>Welcome to Telegram WebApp</h1>
     <button id="sendMessageButton">Send Message</button>
+    <div id="receivedData"></div>
 
     <script>
         const tg = window.Telegram.WebApp;
@@ -17,8 +18,10 @@
             tg.sendData('Hello from WebApp!'); // Отправка данных боту
         });
 
+        // Обработка события получения данных
         tg.onEvent('web_app_data', (data) => {
-            alert(`Received data from bot: ${data}`);
+            const receivedDataDiv = document.getElementById('receivedData');
+            receivedDataDiv.innerText = `Received data from bot: ${data}`;
         });
 
         // Для отладки
