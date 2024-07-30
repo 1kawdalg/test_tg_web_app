@@ -4,21 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Standalone WebApp</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to the Standalone WebApp</h1>
-    <button id="sendMessageButton">Send Message</button>
-    <div id="receivedData"></div>
+    <div class="container">
+        <h1>Welcome to the Standalone WebApp</h1>
+        <button id="sendMessageButton">Send Message</button>
+        <div id="receivedData"></div>
+    </div>
 
-    <script>
-        document.getElementById('sendMessageButton').addEventListener('click', () => {
-            const receivedDataDiv = document.getElementById('receivedData');
-            receivedDataDiv.innerText = 'Hello from WebApp!';
-            console.log('Send Message button clicked');
-        });
-
-        // Для отладки
-        console.log('Standalone WebApp initialized');
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
